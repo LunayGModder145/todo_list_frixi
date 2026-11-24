@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import initialTasks from '../../data/initialTasks.json';
+import TodoList from './TodoList';
 import './Main.css';
 
 const tasksWithId = initialTasks.map((task) => ({
@@ -11,12 +12,28 @@ const tasksWithId = initialTasks.map((task) => ({
 function Main() {
   const [tasks, setTasks] = useState(tasksWithId);
 
+  const handleDeleteTask = (id) => {
+    const updatedTasks = tasks.filter((task) => task._id !== id);
+    setTasks(updatedTasks);
+  };
+
+  const handleToggleDone = (id) => {
+    const updatedTasks = tasks.map((task) =>
+      task._id === id ? { ...task, isDone: !task.isDone } : task
+    );
+    setTasks(updatedTasks);
+  };
+
   return (
     <main className="main">
-      <p>Tareas precargadas: {tasks.length}</p>
-      <button onClick={() => setTasks([])}>Vaciar prueba</button>
+      <TodoList
+        tasks={tasks}
+        onDelete={handleDeleteTask}
+        onToggleDone={handleToggleDone}
+      />
     </main>
   );
 }
 
 export default Main;
+
