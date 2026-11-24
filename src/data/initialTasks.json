@@ -1,0 +1,12 @@
+[
+  {
+    "title": "Repasar useState y useEffect",
+    "desc": "Entender cómo cambia el estado y cómo funciona la precarga inicial",
+    "isDone": false
+  },
+  {
+    "title": "Construir lista de tareas en React",
+    "desc": "Dividir la app en componentes pequeños y probar el flujo",
+    "isDone": false
+  }
+]
