@@ -46,6 +46,13 @@ function Main() {
   const handleResetTasks = () => {
     setTasks(createInitialTasks());
   };
+ 
+  const handleEditTask = (id, updatedFields) => {
+  const updatedTasks = tasks.map((task) =>
+    task._id === id ? { ...task, ...updatedFields } : task
+  );
+  setTasks(updatedTasks);
+  };
 
   return (
     <main className="main">
@@ -56,6 +63,7 @@ function Main() {
         tasks={tasks}
         onDelete={handleDeleteTask}
         onToggleDone={handleToggleDone}
+        onEditTask={handleEditTask}
       />
     </main>
   );
