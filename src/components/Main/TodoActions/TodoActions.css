@@ -1,1 +1,4 @@
-/* Estilos de TodoActions */
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}

@@ -1,1 +1,15 @@
-/* Estilos de TodoForm */
+.todo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.todo-form__error {
+  color: #ff6b6b;
+  margin: 0;
+}
+
+.todo-form__success {
+  color: #51cf66;
+  margin: 0;
+}
